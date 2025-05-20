@@ -28,6 +28,7 @@ public class ClienteDAO {
         String sql = "SELECT * FROM cliente";
         try (Connection con = Conexao.getConnection();
              Statement st = con.createStatement();
+             //
              ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {

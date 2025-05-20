@@ -233,8 +233,8 @@ public class FormCliente extends javax.swing.JFrame {
     private void atualizarTabela() {
         try {
             List<Cliente> lista = new ClienteDAO().buscarTodos();
-            DefaultTableModel m = (DefaultTableModel) tblClientes.getModel();
-            m.setRowCount(0);
+            DefaultTableModel m = (DefaultTableModel) tblClientes.getModel(); // <- Obtém o modelo de dados
+            m.setRowCount(0); // <- Limpa a tabela
             for (Cliente c : lista) {
                 m.addRow(new Object[] {
                     c.getId(), c.getNome(), c.getCpf(), c.getTelefone(), c.getEmail()
@@ -246,7 +246,13 @@ public class FormCliente extends javax.swing.JFrame {
     }
     
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
+        String original = txtTelefone.getText().trim().replaceAll("[^0-9]", "");
+        String somenteNumeros = original.replaceAll("[^0-9]", "");
+        if (!original.equals(somenteNumeros)) {
+            JOptionPane.showMessageDialog(this, "O telefone deve conter apenas números.");
+            txtTelefone.setText(""); // <- Limpa o campo
+            txtTelefone.requestFocus();
+        }
     }//GEN-LAST:event_txtTelefoneActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
