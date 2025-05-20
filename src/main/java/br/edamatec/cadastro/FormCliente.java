@@ -208,6 +208,19 @@ public class FormCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        // validação dos campos obrigatórios: NOME e CPF
+        if (txtNome.getText().trim().isEmpty() || txtCpf.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Preencha os campos obrigatórios: Nome e CPF.");
+            return;
+        }
+        
+        // validação dos 11 dígitos do CPF
+        String cpf = txtCpf.getText().trim().replaceAll("[^0-9]", "");
+        if (cpf.length() != 11) {
+            JOptionPane.showMessageDialog(this, "O CPF deve conter exatamente 11 dígitos numéricos.");
+            return;
+        }
+        
         try {
             Cliente c = new Cliente();
             c.setNome(txtNome.getText());
@@ -222,6 +235,7 @@ public class FormCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao inserir: " + e.getMessage());
         }
     }//GEN-LAST:event_btnInserirActionPerformed
+    
     private void atualizarTabela() {
         try {
             List<Cliente> lista = new ClienteDAO().buscarTodos();
@@ -236,6 +250,7 @@ public class FormCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro: " + e.getMessage());
         }
     }
+    
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
@@ -246,7 +261,7 @@ public class FormCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Selecione um cliente para alterar.");
             return;
         }
-        
+      
         try {
             int id = (int) tblClientes.getValueAt(linha, 0);
             

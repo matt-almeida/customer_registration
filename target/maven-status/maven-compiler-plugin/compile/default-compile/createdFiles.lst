@@ -1,8 +1,11 @@
 br\edamatec\cadastro\ClienteDAO.class
 br\edamatec\cadastro\Conexao.class
 br\edamatec\cadastro\FormCliente$1.class
+br\edamatec\cadastro\FormCliente$7.class
+br\edamatec\cadastro\FormCliente$5.class
 br\edamatec\cadastro\Cliente.class
 br\edamatec\cadastro\FormCliente$3.class
 br\edamatec\cadastro\FormCliente$2.class
 br\edamatec\cadastro\FormCliente.class
 br\edamatec\cadastro\FormCliente$4.class
+br\edamatec\cadastro\FormCliente$6.class
