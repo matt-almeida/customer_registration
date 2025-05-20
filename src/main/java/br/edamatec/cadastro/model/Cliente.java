@@ -1,4 +1,4 @@
-package br.edamatec.cadastro;
+package br.edamatec.cadastro.model;
 
 
 public class Cliente {

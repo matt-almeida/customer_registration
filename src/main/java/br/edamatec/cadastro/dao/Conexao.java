@@ -1,4 +1,4 @@
-package br.edamatec.cadastro;
+package br.edamatec.cadastro.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

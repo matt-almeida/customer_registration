@@ -1,5 +1,6 @@
-package br.edamatec.cadastro;
+package br.edamatec.cadastro.dao;
 
+import br.edamatec.cadastro.model.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
