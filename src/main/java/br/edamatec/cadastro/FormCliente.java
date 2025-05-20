@@ -108,9 +108,19 @@ public class FormCliente extends javax.swing.JFrame {
 
         btnBuscar.setLabel("Buscar");
         btnBuscar.setName("btnBuscar"); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnAlterar.setLabel("Alterar");
         btnAlterar.setName("btnAlterar"); // NOI18N
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setLabel("Excluir");
         btnExcluir.setName("btnExcluir"); // NOI18N
@@ -223,6 +233,36 @@ public class FormCliente extends javax.swing.JFrame {
     private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        int linha = tblClientes.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente para alterar.");
+            return;
+        }
+        
+        try {
+            int id = (int) tblClientes.getValueAt(linha, 0);
+            
+            Cliente c = new Cliente();
+            c.setId(id);
+            c.setNome(txtNome.getText());
+            c.setCpf(txtCpf.getText());
+            c.setTelefone(txtTelefone.getText());
+            c.setEmail(txtEmail.getText());
+            
+            new ClienteDAO().atualizar(c);
+            JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso!");
+            atualizarTabela();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao atualizar: " + e.getMessage());
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments

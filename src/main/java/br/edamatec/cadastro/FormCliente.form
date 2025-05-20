@@ -182,12 +182,18 @@
         <Property name="label" type="java.lang.String" value="Buscar"/>
         <Property name="name" type="java.lang.String" value="btnBuscar" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="btnAlterar">
       <Properties>
         <Property name="label" type="java.lang.String" value="Alterar"/>
         <Property name="name" type="java.lang.String" value="btnAlterar" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="btnExcluir">
       <Properties>
