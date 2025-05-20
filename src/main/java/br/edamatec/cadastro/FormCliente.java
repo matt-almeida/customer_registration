@@ -20,6 +20,7 @@ public class FormCliente extends javax.swing.JFrame {
      */
     public FormCliente() {
         initComponents();
+        atualizarTabela();
     }
 
     /**
