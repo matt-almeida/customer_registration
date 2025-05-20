@@ -3,7 +3,6 @@ br\edamatec\cadastro\view\FormCliente.class
 br\edamatec\cadastro\view\FormCliente$5.class
 br\edamatec\cadastro\dao\ClienteDAO.class
 br\edamatec\cadastro\view\FormCliente$3.class
-br\edamatec\cadastro\view\FormCliente$6.class
 br\edamatec\cadastro\dao\Conexao.class
 br\edamatec\cadastro\view\FormCliente$2.class
 br\edamatec\cadastro\model\Cliente.class
