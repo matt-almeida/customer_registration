@@ -124,6 +124,11 @@ public class FormCliente extends javax.swing.JFrame {
 
         btnExcluir.setLabel("Excluir");
         btnExcluir.setName("btnExcluir"); // NOI18N
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         label5.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         label5.setForeground(new java.awt.Color(255, 0, 0));
@@ -261,8 +266,25 @@ public class FormCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        atualizarTabela();
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        int linha = tblClientes.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(this, "Selecione um cliente para excluir");
+            return;
+        }
+        
+        try {
+            int id = (int) tblClientes.getValueAt(linha, 0);
+            new ClienteDAO().deletar(id);
+            JOptionPane.showMessageDialog(this, "Cliente excluído com sucesso!");
+            atualizarTabela();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Erro ao excluir: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments

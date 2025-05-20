@@ -200,6 +200,9 @@
         <Property name="label" type="java.lang.String" value="Excluir"/>
         <Property name="name" type="java.lang.String" value="btnExcluir" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="label5">
       <Properties>
